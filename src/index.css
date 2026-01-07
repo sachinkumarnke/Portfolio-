@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Fredoka:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-white font-sans overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0bf8] to-[#1cd8d2];
+  }
+}

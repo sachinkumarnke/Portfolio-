@@ -1,0 +1,17 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+    content: [
+        "./index.html",
+        "./src/**/*.{js,ts,jsx,tsx}",
+    ],
+    theme: {
+        extend: {
+            fontFamily: {
+                sans: ['Fredoka', 'sans-serif'],
+                heading: ['Bangers', 'cursive'],
+                body: ['Poppins', 'sans-serif'],
+            },
+        },
+    },
+    plugins: [],
+}
