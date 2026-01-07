@@ -16,7 +16,7 @@ pipeline {
     VITE_APP_FIREBASE_PROJECT_ID = credentials('VITE_APP_FIREBASE_PROJECT_ID')
     VITE_APP_FIREBASE_STORAGE_BUCKET = credentials('VITE_APP_FIREBASE_STORAGE_BUCKET')
     // AWS
-    AWS_REGION = 'ap-south-1'
+    VITE_APP_AWS_REGION = 'ap-south-1'
     VITE_APP_AWS_BUCKET_NAME = 'portfoliosachin'
   }
 
