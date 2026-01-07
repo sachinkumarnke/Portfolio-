@@ -10,9 +10,8 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            steps {
-                checkout scm
-            }
+                // Explicitly checkout git repo since 'checkout scm' fails if script is pasted manually
+                git branch: 'main', url: 'https://github.com/sachinkumarnke/Portfolio-.git'
         }
 
         stage('Setup Environment') {
