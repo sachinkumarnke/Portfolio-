@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { collection, addDoc, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
-import { FaArrowLeft, FaSave, FaImage, FaCode, FaGithub, FaExternalLinkAlt, FaCloudUploadAlt } from 'react-icons/fa';
-import { uploadFileToS3 } from '../../utils/s3Service';
+import { FaArrowLeft, FaSave, FaImage, FaCode, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const ProjectForm = () => {
     const { id } = useParams();
@@ -44,22 +43,7 @@ const ProjectForm = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const [uploading, setUploading] = useState(false);
 
-    const handleFileChange = async (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-
-        setUploading(true);
-        try {
-            const imageUrl = await uploadFileToS3(file);
-            setFormData(prev => ({ ...prev, image: imageUrl }));
-        } catch (error) {
-            alert("Failed to upload image: " + error.message);
-        } finally {
-            setUploading(false);
-        }
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -203,24 +187,7 @@ const ProjectForm = () => {
                                 <label className="block text-sm font-medium text-gray-400 mb-2">Project Image</label>
                                 <div className="space-y-4">
                                     {/* File Input */}
-                                    <div className="relative">
-                                        <input
-                                            type="file"
-                                            onChange={handleFileChange}
-                                            accept="image/*"
-                                            className="hidden"
-                                            id="image-upload"
-                                        />
-                                        <label
-                                            htmlFor="image-upload"
-                                            className={`w-full flex items-center justify-center gap-3 px-5 py-4 rounded-xl border border-dashed border-white/20 bg-black/30 cursor-pointer hover:bg-white/5 transition-colors ${uploading ? 'opacity-50 cursor-not-allowed' : ''}`}
-                                        >
-                                            <FaCloudUploadAlt className="text-2xl text-teal-400" />
-                                            <span className="text-gray-400 font-medium">
-                                                {uploading ? 'Uploading to S3...' : 'Click to Upload Image'}
-                                            </span>
-                                        </label>
-                                    </div>
+
 
                                     {/* URL Fallback / Display */}
                                     <div className="relative">

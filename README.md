@@ -47,10 +47,7 @@ VITE_APP_EMAILJS_TEMPLATE_ID=your_template_id
 VITE_APP_EMAILJS_PUBLIC_KEY=your_public_key
 
 # AWS S3
-VITE_APP_AWS_ACCESS_KEY_ID=your_access_key
-VITE_APP_AWS_SECRET_ACCESS_KEY=your_secret_key
-VITE_APP_AWS_REGION=your_region
-VITE_APP_AWS_BUCKET_NAME=your_bucket_name
+
 
 # Firebase
 VITE_APP_FIREBASE_API_KEY=your_api_key
